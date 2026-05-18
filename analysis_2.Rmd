@@ -20,9 +20,17 @@ _An example of how V&C's very broad goals were reframed as specific concepts tha
 ## To Learn More
 ### Local Resources
 
-1. V&C Expanded 2011 Report. No longer available online. [Download only](downloads/FinalReportVisionChange2011.pdf).
-2. Bibliography of articles articles published in CBE-Life Sciences Education relating to V&C from 2009 to Jan. 2024. [Download](downloads/VCArticleList.md).
-3. Examples of knowledge goals tables from Brownell 2014. [Download](downloads/GeneralKnowledge.pptx).
+1. V&C Expanded 2011 Report. No longer available online. 
+
+[Download only](downloads/FinalReportVisionChange2011.pdf).
+
+2. Bibliography of articles articles published in CBE-Life Sciences Education relating to V&C from 2009 to Jan. 2024. 
+
+[Download](downloads/VCArticleList.md).
+
+3. Examples of knowledge goals tables from Brownell 2014. 
+
+[Download](downloads/GeneralKnowledge.pptx).
 
 [Banning Cancer-Causing Foods](downloads/Case-Cancer_Foods.docx)
  
