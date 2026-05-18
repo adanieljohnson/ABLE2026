@@ -1,0 +1,17 @@
+---
+title: "Overview of Tools"
+bibliography: library.bib
+biblio-style: apalike
+---
+
+```{r, child="_setup.Rmd"}
+```
+#### \   
+
+Tools not described under one of the ADDIE categories or with broader uses are cataloged here. I also have listed some low/no cost tools and strategies that make case writing and use easier. 
+
+If there are other tools needed, please contact me and let me know.
+
+#### \   
+
+<hr>

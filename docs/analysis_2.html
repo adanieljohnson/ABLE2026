@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Analysis Resources</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">STEM Case Writing Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="FAQ.html">
+    <span class="fa fa-comments"></span>
+     
+    FAQ
+  </a>
+</li>
+<li>
+  <a href="brainstorming.html">
+    <span class="fa fa-comments"></span>
+     
+    Brainstorming
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-folder-open"></span>
+     
+    Writing Guide
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="curated_overview.html">
+        <span class="fa fa-folder-open"></span>
+         
+        Overview of ADDIE Model
+      </a>
+    </li>
+    <li>
+      <a href="analysis_overview.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 1 - Goals
+      </a>
+    </li>
+    <li>
+      <a href="analysis_1.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 2 - Process
+      </a>
+    </li>
+    <li>
+      <a href="analysis_2.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis Resources
+      </a>
+    </li>
+    <li>
+      <a href="design_and_development.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design and Development
+      </a>
+    </li>
+    <li>
+      <a href="design_1.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design Resources
+      </a>
+    </li>
+    <li>
+      <a href="implementation_overview.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation
+      </a>
+    </li>
+    <li>
+      <a href="implementation_1.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation Resources
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_overview.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 1 - Process
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_2.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 2 - Revising Cases
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_1.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation Resources
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-share-alt"></span>
+     
+    Cases Collection
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="archive_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Example Cases
+      </a>
+    </li>
+    <li>
+      <a href="case_groups.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Case Groups
+      </a>
+    </li>
+    <li>
+      <a href="collection_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Full Collection
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-wrench"></span>
+     
+    Other Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="toolbox.html">
+        <span class="fa fa-wrench"></span>
+         
+        Overview
+      </a>
+    </li>
+    <li>
+      <a href="templates.html">
+        <span class="fa fa-wrench"></span>
+         
+        Templates
+      </a>
+    </li>
+    <li>
+      <a href="markdown.html">
+        <span class="fa fa-wrench"></span>
+         
+        Markdown
+      </a>
+    </li>
+    <li>
+      <a href="bibtex_formats.html">
+        <span class="fa fa-wrench"></span>
+         
+        Using BibTex
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Analysis Resources</h1>
+
+</div>
+
+
+<div id="section" class="section level4">
+<h4> </h4>
+</div>
+<div id="setting-neuroscience-learning-outcomes" class="section level1">
+<h1>Setting Neuroscience Learning Outcomes</h1>
+<p>If your local program does not have learning outcome goals developed
+already, <a
+href="https://www.lifescied.org/doi/full/10.1187/cbe.22-02-0018">Chen
+and Phillips (2023)</a> published community-driven standards for
+neuroscience topics based on a nationwide survey of neuroscience
+educators.</p>
+<p>Briefly, they define neuroscience’s core concepts as the overarching
+principles that organize knowledge and can be applied to all
+subdisciplines in neuroscience. Those core concepts are:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Communication modalities:</strong> Nervous systems encode
+and transmit information in various modalities that include activity
+patterns, electrical signaling, and chemical signaling. Information is
+transmitted and encoded in timing, frequency and patterns of
+activity.</p></li>
+<li><p><strong>Emergence:</strong> Nervous system functions are
+constructed from the combined interactions of smaller constituent
+components. Complex functions such as cognition, behavior, perception,
+and emotion are the outcome of interactions between many smaller units
+at the tissue, cell, and sub-cellular levels.</p></li>
+<li><p><strong>Evolution:</strong> Similarities and differences in
+nervous systems between organisms are constrained and defined by their
+evolutionary backgrounds. Evolutionary processes produce shared
+functions and homologous nervous system structures, as well as
+adaptations that generate differences between organisms. Nervous systems
+are subject to evolutionary forces and therefore must be understood
+within the phylogenetic history and ecological context of an
+organism.</p></li>
+<li><p><strong>Gene–environment interactions:</strong> Unique patterns
+of gene expression underlie the organization and function of a nervous
+system and are altered by environmental factors.</p></li>
+<li><p><strong>Information processing:</strong> Outputs from a unit in
+the nervous system depend on the inputs it receives as well as
+information filtering and modulation performed by the unit. Information
+processing can be studied at multiple levels of granularity, including
+synapses, subcellular arbors, circuits, and systems. At each level, the
+output of a unit in the nervous system is dependent upon the inputs it
+receives and processes.</p></li>
+<li><p><strong>Nervous system functions:</strong> Nervous systems
+function to coordinate survival responses to the environment, permit
+behavior in a timely manner, and maintain homeostatic regulation.
+Nervous systems detect and monitor external and internal environmental
+conditions, in conjunction with using stored information, to direct an
+appropriate response.</p></li>
+<li><p><strong>Plasticity:</strong> Nervous systems reorganize their
+structure, function, and connections in response to experience. The
+nervous system is malleable. From early developmental stages and
+throughout life, the nervous system strengthens and weakens components
+and connections in response to experience. This modulation, or
+plasticity, occurs in response to intrinsic and extrinsic experiences,
+such as sensory input, behavior, and pathological processes.</p></li>
+<li><p><strong>Structure–function relationship:</strong> Structure
+permits and constrains nervous system function, and function shapes
+structure. Nervous system structures and functions bidirectionally
+inform each other at all levels of organization.</p></li>
+</ol>
+<div id="section-1" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="setting-topic-independent-learning-outcomes"
+class="section level1">
+<h1>Setting Topic-Independent Learning Outcomes</h1>
+<p>The <strong>Teaching Goals Inventory</strong>, developed by Angelo
+and Cross (1993) is a good tool for identifying learning outcomes that
+are independent of course content and concepts knowledge goals. TGI was
+designed to:</p>
+<ul>
+<li>help faculty choose informal classroom assessment methods;</li>
+<li>help individual faculty members become aware of course goals;
+and</li>
+<li>provide a starting point for discussion between colleagues.</li>
+</ul>
+<p>TGI also has proven extremely useful as a catalyst for new course
+development, and for analyzing connections between courses in a
+curricular sequence. The developers have given permission for the
+Inventory to be used freely, and it is <a
+href="https://tgi.its.uiowa.edu/">available online.</a></p>
+<div id="section-2" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="other-resources-for-supporting-analysis"
+class="section level1">
+<h1>Other Resources for Supporting Analysis</h1>
+<div id="examples-of-learning-outcomes" class="section level2">
+<h2>Examples of Learning Outcomes</h2>
+<p>This article by <a
+href="https://www.lifescied.org/doi/10.1187/cbe.13-12-0233">Brownell, et
+al.</a> and this 2023 article by <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10074271/">Clark and
+Hsu</a> are good overviews of the process.</p>
+<p>These are two examples of program-level general learning outcomes.
+Individual courses within the programs would be designed to meet a
+subset of these outcomes.</p>
+<ul>
+<li><a
+href="https://biology.indiana.edu/undergraduate/biology/learning-goals.html">Indiana
+University</a></li>
+<li><a
+href="https://www.bates.edu/biology/biology-at-bates/learning-goals/">Bates
+College</a></li>
+</ul>
+<div id="section-3" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="sources-of-questions-about-motivation-and-interest"
+class="section level2">
+<h2>Sources of Questions About Motivation and Interest</h2>
+<ul>
+<li><a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6755315/">Rowland et
+al.’s 2019 literature review</a> of methods for defining and measuring
+student interest in biology.</li>
+<li><a
+href="https://doi.org/10.1002/(SICI)1098-237X(199907)83:4%3C397::AID-SCE1%3E3.0.CO;2-%23">Biology
+Self-Efficacy Scale</a></li>
+<li><a
+href="https://selfdeterminationtheory.org/intrinsic-motivation-inventory/">Intrinsic
+Motivation Inventory, or IMI</a></li>
+<li><a
+href="https://psycnet.apa.org/doi/10.1037/0022-0663.82.1.33">Motivated
+Strategies for Learning Questionnaire, or MSLQ</a></li>
+<li><a href="downloads/Semester_startup_survey.md">The standard survey I
+use to gather data on student motivation and goals</a>.</li>
+</ul>
+<div id="section-4" class="section level4">
+<h4> </h4>
+<hr>
+</div>
+</div>
+</div>
+
+<p><center><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></center></p>
+<p>Except where noted otherwise, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

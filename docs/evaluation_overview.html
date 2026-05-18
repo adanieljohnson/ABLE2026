@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Evaluation</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">STEM Case Writing Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="FAQ.html">
+    <span class="fa fa-comments"></span>
+     
+    FAQ
+  </a>
+</li>
+<li>
+  <a href="brainstorming.html">
+    <span class="fa fa-comments"></span>
+     
+    Brainstorming
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-folder-open"></span>
+     
+    Writing Guide
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="curated_overview.html">
+        <span class="fa fa-folder-open"></span>
+         
+        Overview of ADDIE Model
+      </a>
+    </li>
+    <li>
+      <a href="analysis_overview.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 1 - Goals
+      </a>
+    </li>
+    <li>
+      <a href="analysis_1.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 2 - Process
+      </a>
+    </li>
+    <li>
+      <a href="analysis_2.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis Resources
+      </a>
+    </li>
+    <li>
+      <a href="design_and_development.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design and Development
+      </a>
+    </li>
+    <li>
+      <a href="design_1.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design Resources
+      </a>
+    </li>
+    <li>
+      <a href="implementation_overview.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation
+      </a>
+    </li>
+    <li>
+      <a href="implementation_1.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation Resources
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_overview.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 1 - Process
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_2.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 2 - Revising Cases
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_1.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation Resources
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-share-alt"></span>
+     
+    Cases Collection
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="archive_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Example Cases
+      </a>
+    </li>
+    <li>
+      <a href="case_groups.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Case Groups
+      </a>
+    </li>
+    <li>
+      <a href="collection_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Full Collection
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-wrench"></span>
+     
+    Other Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="toolbox.html">
+        <span class="fa fa-wrench"></span>
+         
+        Overview
+      </a>
+    </li>
+    <li>
+      <a href="templates.html">
+        <span class="fa fa-wrench"></span>
+         
+        Templates
+      </a>
+    </li>
+    <li>
+      <a href="markdown.html">
+        <span class="fa fa-wrench"></span>
+         
+        Markdown
+      </a>
+    </li>
+    <li>
+      <a href="bibtex_formats.html">
+        <span class="fa fa-wrench"></span>
+         
+        Using BibTex
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Evaluation</h1>
+
+</div>
+
+
+<div id="section" class="section level4">
+<h4> </h4>
+</div>
+<div id="how-to-think-about-evaluation" class="section level1">
+<h1>How to Think About Evaluation</h1>
+<p>Evaluation is an ongoing process of gauging students’ progress
+towards the general learning outcomes and benchmarks you established in
+the <strong>Analysis</strong> stage. Students’ grades on case activities
+are important, but only a piece of the puzzle.</p>
+<p>When thinking about evaluation, ask yourself about:</p>
+<ol style="list-style-type: decimal">
+<li>Learning Outcomes:
+<ul>
+<li>What original goals did I set in the Analysis stage?</li>
+<li>Am I collecting sufficient (and appropriate) data to answer those
+questions with confidence?</li>
+</ul></li>
+<li>Transfer:
+<ul>
+<li>Do students know how to apply what they learned now to new
+situations?</li>
+<li>Are students able to build on what they learned now in later
+courses?</li>
+</ul></li>
+<li>Process:
+<ul>
+<li>Is implementation going as I expected?</li>
+<li>What practical logistical challenges have shown up more than 1-2
+times?</li>
+<li>What am I (as the instructor) spending most of my time fixing or
+finding workarounds for?</li>
+<li>Where are students getting confused or off track? Are they able to
+self-correct?</li>
+<li>What are students dissatisfied with? Why?</li>
+</ul></li>
+</ol>
+<p>It is easy to go overboard and design an unsustainable evaluation
+process. As you are thinking about WHAT to evaluate, think too about the
+effort needed, and if the data obtained will provide insights that
+benefit the students.</p>
+<p>When deciding what your strategy will be, also remember that you want
+to:</p>
+<ul>
+<li>Measure progress of each student individually, but</li>
+<li>Look at student performance <strong>in aggregate</strong>, not at
+individual students.</li>
+</ul>
+<p>This page describes selected examples of how to evaluating learning
+outcomes gains, transfer, and process. Additional resources are
+available on the <a href="evaluation_1.html">Evaluation Resources</a>
+page.</p>
+<div id="section-1" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="evaluating-learning-outcomes" class="section level1">
+<h1>Evaluating Learning Outcomes</h1>
+<p>Key questions here are:</p>
+<ul>
+<li>What were the general learning outcomes and benchmarks?</li>
+<li>How far have students progressed towards these goals?</li>
+<li>Am I getting the data I need to make decisions?</li>
+</ul>
+<p>The gold standard for evaluating progress towards learning outcomes
+is pre/post course performance, which requires collecting baseline and
+end-course data. Students are not likely to perform at their best if you
+separate outcomes evaluation from their normal class evaluation. Ideally
+you should make data collection part of your cases and regular classroom
+assessment process, then pull out the data later.</p>
+<p>For example, in my course using a series of 8 cases, I have 3
+questions at the end of the first case that I assume students cannot
+answer in any depth. I then ask essentially the same questions in a
+different context in the final case of the semester. I score students’
+responses on the two sets of questions using a 10-point scale similar to
+the Experimental Design Ability Test (EDAT; <a
+href="https://eric.ed.gov/?id=EJ943887">Sirum &amp; Humburg,
+2011</a>.)</p>
+<p>EDAT-style scoring works well when courses are small because I can
+get fine-grained feedback from just a few students. It becomes
+impractical in a case-based course with a large number of students (more
+than 40 or so.) Now a more scalable strategy is to embed passage-based
+questions in course exams. This format is used in the Critical Reading
+section of the SAT, most sections of the MCAT exam, the LSAT, and other
+professional school entrance exams.</p>
+<p>Briefly, students read a short passage similar to a case-type
+scenario, then answer multiple choice or short open response
+questions.</p>
+<p>Advantages of passage-based questions:</p>
+<ul>
+<li>Each student must demonstrate their ability without help from
+working partners.</li>
+<li>They disadvantage “social loafers” who did not participate in
+regular class discussions. They will not be prepared to answer such
+questions on their own.</li>
+<li>Responses to multiple choice or choice-options questions can be
+summarized and graphed easily.</li>
+</ul>
+<p>Disadvantages of passage-based questions:</p>
+<ul>
+<li>Students have limited time to think before answering questions.</li>
+<li>Writing good passages and questions requires more instructor
+time.</li>
+</ul>
+<div id="section-2" class="section level4">
+<h4> </h4>
+</div>
+<div id="computational-text-analysis" class="section level2">
+<h2>Computational Text Analysis</h2>
+<p>Instructors who use R or Python can use natural language processing
+packages to analyze pre/post samples of students’ writing. Useful
+metrics can be calculated for hundreds of samples then summarized in
+just a few minutes. Those interested in learning more about this
+approach can contact me directly.</p>
+<div id="section-3" class="section level4">
+<h4> </h4>
+</div>
+</div>
+</div>
+<div id="evaluating-knowledge-transfer" class="section level1">
+<h1>Evaluating Knowledge Transfer</h1>
+<p>Key questions here are:</p>
+<ul>
+<li>Can students apply knowlege and skills they learned from cases to
+novel situations?</li>
+<li>Are students able to build on what they learned in later
+courses?</li>
+</ul>
+<p>Evaluations of general learning outcomes usually provide data about
+knowledge transfer too. For example, if students were required to use
+Toulmin’s practical argumentation model to solve a case during class,
+they should be able to use that model to solve a novel problem on an
+exam.</p>
+<p>When planning this part of your evaluation, keep in mind that we tend
+not to teach biology students HOW to transfer their knowledge and
+skills. STEM students taking physics or chemistry routinely work on word
+problems that train them to apply what they learn to new situations. In
+biology, we assume that students can do this intuitively. If students do
+not have regular opportunities to practice transferring knowledge and
+skills (and get feedback), they may not show much improvement.</p>
+<div id="section-4" class="section level4">
+<h4> </h4>
+</div>
+<div id="other-ways-of-evaluating-knowledge-transfer"
+class="section level2">
+<h2>Other Ways of Evaluating Knowledge Transfer</h2>
+<div id="in-the-news" class="section level3">
+<h3>In the News</h3>
+<p>Give students a news or magazine article about one or more topics
+covered by cases or coursework. List one specific concept or skill they
+should have learned, and ask them to:</p>
+<ul>
+<li>Critique the evidence presented</li>
+<li>Support or debunk the argument or conclusion</li>
+<li>Argue a different or opposing position</li>
+<li>Make a hypothesis and design an experiment to test the key
+conclusion</li>
+<li>Etc.</li>
+</ul>
+<p>This can be a standalone assignment at the end of the semester, or
+part of a final exam.</p>
+<div id="section-5" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="nsf-pre-proposal" class="section level3">
+<h3>NSF Pre-Proposal</h3>
+<p>Students write a 3-page pre-proposal pitch of an idea to the NSF.
+Their pitch should apply one or more concepts that were explored in
+class to a disease or problem that they did not explore in class.
+Guidelines and criteria for the pre-proposal should be as similar as
+reasonably possible to actual federal grant requirements.</p>
+<p>This works best as a final course project. Give students several
+weeks to work on it. An example of instructions for this type of project
+are <a href="downloads/NSF_preproposal_guide.md">in the
+Resources</a>.</p>
+<div id="section-6" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="explainer-video" class="section level3">
+<h3>Explainer Video</h3>
+<p>Students create a short video explaining a concept that was NOT
+explored in class cases, but is related to the course content. Videos
+should be:</p>
+<ul>
+<li>Short (under 5-10 minutes)</li>
+<li>Targeted to a particular audience (I usually tell students that
+their peers who have NOT had my class are their audience.)</li>
+<li>Focused on ONE concept.</li>
+<li>Demonstrate at least one of the skills I want students to carry
+forward from the class.</li>
+</ul>
+<p>The original idea for this evaluation technique (which I use
+routinely now) came from NSF’s Broader Impacts requirement for grant
+proposals, and HHMI’s Biointeractive Program. Most students have a cell
+phone they can use to create videos, and our institution has video
+equipment that any student can borrow. The key is requiring students to
+explain a concept we did NOT talk about in class. With this one activity
+I can assess content knowledge transfer, vocabulary mastery, teamwork
+and collaboration,</p>
+<p>Like a pre-proposal, this works best as a final course project. Give
+students several weeks to work on it.</p>
+<p>An example of instructions for this type of project are <a
+href="downloads/Explainer_video_guide.md">in the Resources</a>.</p>
+<div id="section-7" class="section level4">
+<h4> </h4>
+</div>
+</div>
+</div>
+<div id="evaluating-transfer-to-future-courses" class="section level2">
+<h2>Evaluating Transfer to Future Courses</h2>
+<p>This is difficult for three reasons.</p>
+<ol style="list-style-type: decimal">
+<li>Usually we treat each course as a closed module within the
+curriculum. If your course is not part of a larger program that
+evaluates forward transfer, the amount and types of data you can collect
+will be limited.</li>
+<li>Student surveys are not reliable. They forget much of what they
+learned from semester to semester, especially when they encounter new
+concepts or skills for the first time.</li>
+<li>Students may not realize that they are using newly acquired
+knowledge or skills, so cannot point to where they first gained
+them.</li>
+</ol>
+<p>If your case-oriented course is a pre-requisite for any popular
+advanced courses, ask those instructors if you can survey their
+students. Similarly, ask any instructors teaching capstone courses if
+you can poll their students.</p>
+<p>Look on the <a href="evaluation_1.html">Resources</a> page for more
+on evaluating forward transfer.</p>
+<div id="section-8" class="section level4">
+<h4> </h4>
+</div>
+</div>
+</div>
+<div id="evaluating-process-and-implementation" class="section level1">
+<h1>Evaluating Process and Implementation</h1>
+<p>Questions to ask here are:</p>
+<ul>
+<li>Is implementation going as planned?
+<ul>
+<li>What practical logistical challenges have shown up more than 1-2
+times?</li>
+<li>What am I (as the instructor) spending most of my time fixing or
+finding workarounds for?</li>
+</ul></li>
+<li>Are students able to navigate and complete the cases successfully?
+<ul>
+<li>Where are students getting confused or off track?</li>
+<li>Are students able to self-correct, or do they need more
+guidance?</li>
+</ul></li>
+<li>What are students dissatisfied with? Why?</li>
+</ul>
+<p>I find that when I introduce a new case (or add a case to an existing
+sequence), several implementation problems become apparent almost
+immediately. When students point these mechanical issues, <strong>do not
+wait to fix them!</strong> You gain students’ trust when they know that
+you are responsive and will address mechanical problems quickly. This
+translates into:</p>
+<ul>
+<li>Greater willingness to tell you honestly what is or is not working
+with the cases; and</li>
+<li>Greater student buy-in for cases generally.</li>
+</ul>
+<div id="section-9" class="section level4">
+<h4> </h4>
+</div>
+<div id="tools-for-evaluating-process-and-implementation"
+class="section level2">
+<h2>Tools for Evaluating Process and Implementation</h2>
+<div id="end-of-case-debriefsurvey" class="section level3">
+<h3>End of Case Debrief/Survey</h3>
+<p>At the conclusion of each case, ask students to debrief aloud in
+class, or complete a short survey on the course LMS. Informative
+questions include:</p>
+<ul>
+<li>Was the case topic interesting to you? Why? Is there a topic that
+you think would work better here?
+<ul>
+<li>If students did not find the case scenario interesting, that colors
+their opinion overall.</li>
+<li>Students have insights into what their peers will find interesting
+the next time. Just changing the topic (but nothing else) often improves
+student engagement with an unpopular case. <br><br />
+</li>
+</ul></li>
+<li>What did I want you to learn from this case?
+<ul>
+<li>More than half of students should be able to identify the main
+learning outcomes of a case. Their responses should become more nuanced
+and detailed as the course progresses.</li>
+<li>If students are not able to identify the learning goals or do not
+improve by mid-semester, it suggests they are not transferring their
+skills from case to case, or are not motivated to engage. <br></li>
+</ul></li>
+<li>Where did your team struggle with this case? What could I do to make
+it easier? What could your team have done better?
+<ul>
+<li>Asking students to reflect on their group process reinforces that
+they are equally responsible for success.</li>
+<li>Asking about process for each case provides data on what might need
+to be changed next time.</li>
+<li>Remember that you cannot please everyone. Look for trends in the
+responses. An issue that &gt;50% of students raise has higher priority
+than one &lt;10% of students raise.</li>
+</ul></li>
+</ul>
+<div id="section-10" class="section level4">
+<h4> </h4>
+</div>
+</div>
+<div id="end-of-semester-evaluations" class="section level3">
+<h3>End of Semester Evaluations</h3>
+<p>Like many faculty I think end-of-semester evaluations are not very
+informative. Students know that what they say will not affect their own
+experience. For many it is their opportunity to vent frustrations,
+nothing more. To get better data, we should ask questions while the
+course is in progress.</p>
+<p>I do rely on end-of-semester evaluations to get feedback on ideas for
+changes to specific cases or the course overall in the future. Their
+pre-implementation feedback has kept me from spending many hours on
+unneeded revisions. With the concluding course as their baseline, I ask
+current students to rate (using a Likert scale of Strongly disagree to
+Strongly agree) changes I am considering. I usually get strong support
+for just 1 in every 4-5 changes I propose. Often they strongly disagree
+with some of my suggestion; those ideas get dropped unless there is a
+strong pedagogical reason to override the students’ opinion.</p>
+<div id="section-11" class="section level4">
+<h4> </h4>
+<hr>
+</div>
+</div>
+</div>
+</div>
+
+<p><center><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></center></p>
+<p>Except where noted otherwise, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

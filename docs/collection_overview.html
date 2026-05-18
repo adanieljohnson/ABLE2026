@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Cases Collection</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">STEM Case Writing Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="FAQ.html">
+    <span class="fa fa-comments"></span>
+     
+    FAQ
+  </a>
+</li>
+<li>
+  <a href="brainstorming.html">
+    <span class="fa fa-comments"></span>
+     
+    Brainstorming
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-folder-open"></span>
+     
+    Writing Guide
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="curated_overview.html">
+        <span class="fa fa-folder-open"></span>
+         
+        Overview of ADDIE Model
+      </a>
+    </li>
+    <li>
+      <a href="analysis_overview.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 1 - Goals
+      </a>
+    </li>
+    <li>
+      <a href="analysis_1.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis 2 - Process
+      </a>
+    </li>
+    <li>
+      <a href="analysis_2.html">
+        <span class="fa fa-eye"></span>
+         
+        Analysis Resources
+      </a>
+    </li>
+    <li>
+      <a href="design_and_development.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design and Development
+      </a>
+    </li>
+    <li>
+      <a href="design_1.html">
+        <span class="fa fa-pencil"></span>
+         
+        Design Resources
+      </a>
+    </li>
+    <li>
+      <a href="implementation_overview.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation
+      </a>
+    </li>
+    <li>
+      <a href="implementation_1.html">
+        <span class="fa fa-users"></span>
+         
+        Implementation Resources
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_overview.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 1 - Process
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_2.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation 2 - Revising Cases
+      </a>
+    </li>
+    <li>
+      <a href="evaluation_1.html">
+        <span class="fa fa-crosshairs"></span>
+         
+        Evaluation Resources
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-share-alt"></span>
+     
+    Cases Collection
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="archive_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Example Cases
+      </a>
+    </li>
+    <li>
+      <a href="case_groups.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Case Groups
+      </a>
+    </li>
+    <li>
+      <a href="collection_overview.html">
+        <span class="fa fa-share-alt"></span>
+         
+        Full Collection
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-wrench"></span>
+     
+    Other Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="toolbox.html">
+        <span class="fa fa-wrench"></span>
+         
+        Overview
+      </a>
+    </li>
+    <li>
+      <a href="templates.html">
+        <span class="fa fa-wrench"></span>
+         
+        Templates
+      </a>
+    </li>
+    <li>
+      <a href="markdown.html">
+        <span class="fa fa-wrench"></span>
+         
+        Markdown
+      </a>
+    </li>
+    <li>
+      <a href="bibtex_formats.html">
+        <span class="fa fa-wrench"></span>
+         
+        Using BibTex
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Cases Collection</h1>
+
+</div>
+
+
+<div id="section" class="section level4">
+<h4> </h4>
+<p>These cases have been contributed to our collection by authors
+who:</p>
+<ul>
+<li>used our case writing resources;</li>
+<li>want to share cases they have written previously; or</li>
+<li>have models for other case formats they want to share.</li>
+</ul>
+<p>Click on the name of a case to download the student and instructor
+materials.</p>
+</div>
+<div id="section-1" class="section level4">
+<h4> </h4>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="29%" />
+<col width="7%" />
+<col width="7%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="center">Format</th>
+<th align="center">Time Req’d</th>
+<th align="left">Focus or <br>Key Activities</th>
+<th align="left">Level</th>
+<th align="left">Instructor<br>Notes</th>
+<th align="left">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a
+href="downloads/Case-What_Is_Life_annotated.pptx">What is Life?</a></td>
+<td align="center">Continuous</td>
+<td align="center">30 min.</td>
+<td align="left">* Applying prior knowledge<br>* Assessing evidence</td>
+<td align="left">Nonmajors</td>
+<td align="left">Yes</td>
+<td align="left">Model for slides-based cases that work in large lecture
+courses</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="downloads/Case-Cancer_Foods.docx">Banning
+Cancer-Causing Foods</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">2 hrs</td>
+<td align="left">* Finding, assessing evidence for lay press claims<br>*
+Prioritizing points for oral arguments</td>
+<td align="left">Nonmajors</td>
+<td align="left">Yes</td>
+<td align="left">Model for building decision-making cases</td>
+</tr>
+<tr class="odd">
+<td align="left"><a
+href="downloads/Case-Effects_of_feeding_flossflower_on_Manduca_development.docx">Eating
+Flossflower Changes Manduca Development</a></td>
+<td align="center">Continuous;<br>1 session</td>
+<td align="center">30-60 min.</td>
+<td align="left">* Designing experiments<br>* Interpreting results<br>*
+Summarizing observations<br>* Reporting in a notebook</td>
+<td align="left">Introductory</td>
+<td align="left">Yes</td>
+<td align="left">Good case for teaching experimental design, introducing
+lab notebooks or scientific writing, training TAs to lead
+discussions.</td>
+</tr>
+<tr class="even">
+<td align="left"><a
+href="downloads/Case-Mapping_a_Promoter.docx">Mapping a
+Promoter</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">2-3 hrs</td>
+<td align="left">* How transcription factors bind to promoters<br>*
+Interpreting data from multiple sources <br>* Supporting a conclusion
+with experimental evidence</td>
+<td align="left">Intermediate</td>
+<td align="left">Yes</td>
+<td align="left">Is extensively annotated to show how case was
+constructed, and how each piece contributes to learning goals.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="downloads/Case-Genes_of_Autism.docx">Genes of
+Autism</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">2-3 hrs</td>
+<td align="left">* How epigenetics controls multiple genes<br>* Linking
+clinical features to genes <br>* Supporting a conclusion with
+experimental evidence</td>
+<td align="left">Intermediate or Advanced</td>
+<td align="left">Yes</td>
+<td align="left">Model case for exploring genetics of any
+multi-factorial disease. Focuses more on logic than a single right
+answer.</td>
+</tr>
+<tr class="even">
+<td align="left"><a
+href="downloads/Case-Microtubules_in_Neural_Diseases.docx">Microtubules
+in Neural Diseases</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">2-3 hrs</td>
+<td align="left">* Connecting cell changes to disease<br>* Identifying
+key data in research reviews</td>
+<td align="left">Advanced</td>
+<td align="left">Partial</td>
+<td align="left">A capstone exercise where students show ability to make
+connections, summarize studies.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="downloads/Case-From_Dogs_to_DNA.docx">From
+Dogs to DNA</a></td>
+<td align="center">Linked set of 3 interrupted cases;<br>1 session/
+case</td>
+<td align="center">1 hr/ case</td>
+<td align="left">* Genetic principles<br>* Connecting genotypes to
+phenotypes<br>* Evolution of behavior<br></td>
+<td align="left">Intermediate</td>
+<td align="left">Yes</td>
+<td align="left">Example of a linked case set built around one thematic
+model.</td>
+</tr>
+<tr class="even">
+<td align="left"><a
+href="downloads/Case-FDA_Clinical_Trial_Approvals.docx">FDA Clinical
+Trial Approvals</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">3 hrs</td>
+<td align="left">* Learning how clinical trials are conducted<br>*
+Evaluating proposals based on set criteria</td>
+<td align="left">Intermediate<br>to advanced</td>
+<td align="left">Yes</td>
+<td align="left">Model for introducing clinical trial or research
+proposal review process in any field.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="downloads/Case-Is_DU_Causing_Cancer.docx">Is
+DU Ammo Causing Cancer?</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">2 hrs</td>
+<td align="left">* Using course concepts and content knowledge to
+understand a social issue<br>* Testing claims of lay press against
+scientific evidence<br>* Synthesizing, summarizing evidence<br>*
+Explaining evidence to a non-technical audience</td>
+<td align="left">Advanced</td>
+<td align="left">Yes</td>
+<td align="left">Model for applying evidence to controversial anecdotal
+claims.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="downloads/Case-Team_Work.docx">Team
+Work</a></td>
+<td align="center">Interrupted;<br>2 sessions</td>
+<td align="center">3 hrs</td>
+<td align="left">* Responsible conduct of research<br>* Professional
+ethical decision-making<br>* External data collection<br>*
+Self-reflection<br>* Debriefing a group</td>
+<td align="left">Advanced</td>
+<td align="left">Yes</td>
+<td align="left">Model for a classic problem-based learning case.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="legend" class="section level2">
+<h2>Legend</h2>
+<p>Cases are classified by:</p>
+<ul>
+<li><strong>Format</strong>: single- or multiple sessions case;
+continuous or interrupted. Linked sets are 2+ cases using the same
+background information.</li>
+<li><strong>Time required</strong> (excluding outside reading,
+research)</li>
+<li><strong>Focus or key activities</strong> build:
+<ul>
+<li>Content and conceptual knowledge, general knowledge, and/or
+discipline-specific knowledge</li>
+<li>Critical, applied, or synthetic thinking skills</li>
+<li>Practical skills: experimental design, interpreting data,
+summarizing observations, reporting preliminary work</li>
+<li>Affective and metacognitive skills: self- reflection, strategic
+thinking, team or process assessment</li>
+</ul></li>
+<li><strong>Level of difficulty</strong>:
+<ul>
+<li>Nonmajors</li>
+<li>Introductory (100-level courses)</li>
+<li>Intermediate (200-/300-level courses)</li>
+<li>Advanced (senior undergraduates, graduate students)</li>
+</ul></li>
+<li><strong>Instructor notes</strong>:
+<ul>
+<li>Yes. Case includes full instructor’s notes.</li>
+<li>Partial. Case notes are incomplete or in draft form.</li>
+<li>None. Only the case scenario and student materials are available
+currently.</li>
+</ul></li>
+</ul>
+<div id="section-2" class="section level4">
+<h4> </h4>
+</div>
+</div>
+
+<p><center><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></center></p>
+<p>Except where noted otherwise, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

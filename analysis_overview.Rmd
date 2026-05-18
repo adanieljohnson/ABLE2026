@@ -1,0 +1,44 @@
+---
+title: "Goals of Analysis"
+output: html_document
+bibliography: library.bib
+biblio-style: apalike
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### \   
+
+The first step in the ADDIE process is to determine what specific goals you hope to accomplish in a course. More specifically:
+
+1. __What are the general learning outcomes?__ What principles, theories, concepts, skills, or content knowledge should students achieve as a result of learning activities?
+2. __What are appropriate specific benchmarks or performance goals?__ What will students be able to do to indicate they have accomplished these endpoints?
+3. __How should the goals be sequenced?__ Which benchmarks do students need to reach first, before they can achieve others?
+
+#### \   
+
+## Don't Ignore Affect and Motivation
+
+Personally I think the ADDIE model overlooks the impacts of student affect and motivation on learning. To compensate I also use John Keller’s __ARCS Model of Motivation__ as part of my analysis. _(Elements of ARCS that cases are particularly good for are italicized.)_
+
+* __Attention.__ Are learners interested in taking in concepts/ideas being taught? Courses increase attention by including: 
+    + _Perceptual arousal: using surprise or uncertainty_
+    + Inquiry arousal: offering challenging questions, problems to answer/solve
+    + Variability: using varied resources, teaching methods
+* __Relevance.__ Do course activities use language, examples learners are familiar with? Relevance can come from:
+    + Matching goal-orientation and motives of learners and the course
+    + _Providing examples and raising questions that are familiar to the learners._
+* __Confidence.__ Do students have a reasonable expectation of predicting and achieving success? This comes from: 
+    + Giving them tools to monitor progress towards course goals. These can be:
+        - Static tools like the syllabus, grading policy, rubrics or
+        - Situational tools like an estimated time to complete tasks. 
+    + Positive reinforcement for personal achievements.
+    + _Timely, relevant feedback._
+* __Satisfaction.__ Do students get a sense of achievement, or gain praise from peers or a higher-up when they complete course activities?
+    + _Feedback and reinforcement are important elements._
+    + Learners who are positively reinforced are more motivated to continue learning. 
+
+#### \   
+
+<hr>

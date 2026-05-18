@@ -1,0 +1,59 @@
+---
+title: "Other Resources"
+bibliography: library.bib
+biblio-style: apalike
+---
+
+```{r, child="_setup.Rmd"}
+```
+#### \   
+
+These are some other case-related resources on the web. 
+#### \   
+
+## General/Cross-Topic Resources
+
+* [NSTA Case Studies Library](https://www.nsta.org/case-studies)
+
+#### \   
+
+## Disciplinary Resources
+
+### General Biology
+
+* Item
+* Item
+
+#### \   
+
+### Neuroscience
+
+* [Community-derived core list of neuroscience topics - Chen-Lew 2023](https://www.lifescied.org/doi/full/10.1187/cbe.22-02-0018)
+
+* Item
+* Item
+
+#### \   
+
+### Chemistry, Physics
+
+* Item
+* Item
+
+#### \   
+
+### Engineering
+
+* Item
+* Item
+
+#### \   
+
+### Mathematics, Statistics
+
+* Item
+* Item
+
+#### \   
+
+<hr>
