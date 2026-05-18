@@ -16,32 +16,35 @@ Slide46.jpeg
 
 _An example of how V&C's very broad goals were reframed as specific concepts that connect to one another, and provide anchor points for assessing student learning._
 
+#### \  
 
 ## To Learn More
 ### Local Resources
 
-1. V&C Expanded 2011 Report. No longer available online. 
-
+* V&C Expanded 2011 Report. No longer available online. 
 [Download only](downloads/FinalReportVisionChange2011.pdf).
 
-2. Bibliography of articles articles published in CBE-Life Sciences Education relating to V&C from 2009 to Jan. 2024. 
-
+* Bibliography of articles articles published in CBE-Life Sciences Education relating to V&C from 2009 to Jan. 2024. 
 [Download](downloads/VCArticleList.md).
 
-3. Examples of knowledge goals tables from Brownell 2014. 
-
+* Examples of knowledge goals tables from Brownell 2014. 
 [Download](downloads/GeneralKnowledge.pptx).
 
-[Banning Cancer-Causing Foods](downloads/Case-Cancer_Foods.docx)
- 
+#### \  
+
 ### External Resources
 
-1. V&C 2011 Summary Report. [Links to an external site](https://www.aaas.org/sites/default/files/content_files/VC_report.pdf).
-2. Brownell, 2014. First framework of specific performance goals for V&C. [Links to an external site](https://pubmed.ncbi.nlm.nih.gov/26086653/).
-3. Clemmons, 2020. Development and validation of BioSkills Guide, a tool for interpreting V&C competencies. [Links to an external site](https://pubmed.ncbi.nlm.nih.gov/33001766/). 
-4. PULSE Community. A prominent stakeholders group working on national implementation. [Links to an external site](https://pulse-community.org/). 
-5. A 2023 article by [Clark and Hsu](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10074271/)\cite{Clark2023} is a good overview of the process.
-6. Here are two examples of program-level general learning outcomes. Individual courses within the programs would be designed to meet a subset of these outcomes.
+* V&C 2011 Summary Report. [Links to an external site](https://www.aaas.org/sites/default/files/content_files/VC_report.pdf).
+
+* Brownell, 2014. First framework of specific performance goals for V&C. [Links to an external site](https://pubmed.ncbi.nlm.nih.gov/26086653/).
+
+* Clemmons, 2020. Development and validation of BioSkills Guide, a tool for interpreting V&C competencies. [Links to an external site](https://pubmed.ncbi.nlm.nih.gov/33001766/). 
+
+* PULSE Community. A prominent stakeholders group working on national implementation. [Links to an external site](https://pulse-community.org/). 
+
+* A 2023 article by [Clark and Hsu](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10074271/)\cite{Clark2023} is a good overview of the process.
+
+* Here are two examples of program-level general learning outcomes. Individual courses within the programs would be designed to meet a subset of these outcomes.
     + [Indiana University](https://biology.indiana.edu/undergraduate/biology/learning-goals.html)
     + [Bates College](https://www.bates.edu/biology/biology-at-bates/learning-goals/)
 
