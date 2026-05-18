@@ -1,6 +1,6 @@
-# Welcome to the Neuroscience Teaching Cases Site 
+# Welcome to the STEM Teaching Cases Site 
 
-We encourage others to use the resources available here. Except where noted otherwise, all materials may be reused and adapted under terms of a Creative Commons license.
+I encourage others to use the resources available here. Except where noted otherwise, all materials may be reused and adapted under terms of a Creative Commons license.
 
 <p><center><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></center></p><p>Except where noted otherwise, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <br>
