@@ -12,8 +12,7 @@ biblio-style: apalike
 
 If your local program does not have learning outcome goals developed already, the 2011 Vision and Change in Undergraduate Biology Education report (V&C) is a good reference resource. The original report was the culmination of a 10-year effort to develop a consensus among stakeholders at the local and national levels of what disciplinary knowledge and skills undergraduates should have after their first year of biology courses. Subsequent reports have established assessment criteria for the V&C goals, and several professional groups exist whose aim is to implement V&C's goals nationally. Several sub-groups within biology are using the V&C model to establish foundational learning goals for students starting out in their fields of study. 
 
-Slide46.jpeg
-
+![](images/Slide46.jpeg)
 _An example of how V&C's very broad goals were reframed as specific concepts that connect to one another, and provide anchor points for assessing student learning._
 
 #### \  
